@@ -1,12 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('preparation') {
-      steps {
-      git 'https://github.com/2021ht66056/ops.git'
-              }
-    }
-    stage('Test') {
+       stage('Test') {
       steps {
         bat "mvn clean test"
       }
