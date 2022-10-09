@@ -3,8 +3,8 @@ pipeline {
   stages {
     stage('preparation') {
       steps {
-        git 'https://github.com/2021ht66056/ops.git'
-      }
+      git 'https://github.com/2021ht66056/ops.git'
+              }
     }
     stage('Test') {
       steps {
@@ -18,10 +18,8 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        script {
-          deploy adapters: [tomcat8(credentialsId: 'jenkin', path: '', url: 'http://localhost:9080/jenkinsfile')], contextPath: '/jenkinsfile', war: '**/*.war'
-        }
-      }
+         deploy adapters: [tomcat8(credentialsId: 'jenkin', path: '', url: 'http://localhost:9080/jenkinsfile')], contextPath: '/jenkinsfile', war: '**/*.war'
+              }
     }
   }
 }
