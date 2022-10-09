@@ -2,22 +2,22 @@ pipeline {
   agent any
   stages {
     stage('preparation') {
-      step {
+      'step' {
         git 'https://github.com/2021ht66056/ops.git'
       }
     }
     stage('Test') {
-      step {
+      'step' {
         bat "mvn clean test"
       }
     }
     stage('Package') {
-      step {
+      'step' {
         bat "mvn clean package"
       }
     }
     stage('Deploy') {
-      step {
+      'step' {
         script {
           deploy adapters: [tomcat8(credentialsId: 'jenkin', path: '', url: 'http://localhost:9080/jenkinsfile')], contextPath: '/jenkinsfile', war: '**/*.war'
         }
